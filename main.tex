@@ -1,0 +1,157 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usetheme{Madrid}
+
+\title
+{Control Systems}
+\subtitle{IN GATE QUESTION , 2018- QUESTION 37}
+\author{EE18BTECH11019, HARSH KABRA}
+%\author{F}
+
+
+\begin{document}
+\frame{\titlepage}
+\begin{frame}
+\frametitle{PROBLEM STATEMENT}
+\emph{Q)} Consider the linear system \emph{$\dot{x}$} =
+\begin{bmatrix}
+-1 & 0\\
+0 & -2
+\end{bmatrix}x , with initial condition\\x(0) =
+\begin{bmatrix}
+1\\
+1
+\end{bmatrix}. The solution x(t) for this system is: \\
+\vspace{7mm}
+
+
+
+(A) x(t) =
+\begin{bmatrix}
+e^{-t} & te^{-2t}\\
+0 & e^{-2t}
+\end{bmatrix}
+\begin{bmatrix}
+1\\
+1
+\end{bmatrix} \hfill 
+(B) x(t) =
+\begin{bmatrix}
+e^{-t} & 0\\
+0 & e^{2t}
+\end{bmatrix}
+\begin{bmatrix}
+1\\
+1
+\end{bmatrix}
+\\
+\vspace{3mm}
+(C) x(t) =
+\begin{bmatrix}
+e^{-t} & t^{2}e^{-2t}\\
+0 & e^{-2t}
+\end{bmatrix}
+\begin{bmatrix}
+1\\
+1
+\end{bmatrix} \hfill 
+(D) x(t) =
+\begin{bmatrix}
+e^{-t} & 0\\
+0 & e^{-2t}
+\end{bmatrix}
+\begin{bmatrix}
+1\\
+1
+\end{bmatrix}
+\\
+
+
+\end{frame}
+\begin{frame} 
+
+\frametitle{Solution}
+It is of the form \emph{$\dot{x}$ = Ax}. Therefore its solution is \\
+\vspace{3mm}
+\hspace{30 mm}x(t) = e^{At}x(0)\\
+$e^{At}$ is my state transition matrix 
+and is equal to\\
+\hspace{30mm}
+$\mathcal{L}$^{-1}$[sI - A]^{-1}$ \hspace{7mm} (derivation in last slide)\\
+\hspace{5mm}
+A = 
+\begin{bmatrix}
+-1 & 0\\
+0 & -2
+\end{bmatrix} \hspace{20mm}
+$\therefore$ [sI - A] = 
+\begin{bmatrix}
+s+1 & 0\\
+0 & s+2
+\end{bmatrix}\\
+\vspace{5mm}
+\hspace{5mm}
+\rightarrow Adj(sI -A) =
+\begin{bmatrix}
+s+2 & 0\\
+0 & s+1
+\end{bmatrix}\\
+\vspace{5mm}
+\hspace{5mm}
+\rightarrow det(sI -A) = (s+1)(s+2)
+\end{frame}
+\begin{frame}
+%\begin{center}
+\frametitle{Solution}
+\hspace{5mm}
+$\therefore$ [sI - A]^{-1} = \frac{Adj(A)}{det(A)} = 
+\begin{bmatrix}
+\frac{1}{s+1} & 0\\
+0 & \frac{1}{s+2}
+\end{bmatrix} \\
+\vspace{5mm} \hspace{5mm}
+e^{At} = 
+\begin{bmatrix}
+\mathcal{L}^{-1}[\frac{1}{s+1}] & 0\\
+0 & \mathcal{L}^{-1}[\frac{1}{s+2}]
+\end{bmatrix} \\
+\vspace{5mm} \hspace{5mm}
+e^{At} = 
+\begin{bmatrix}
+e^{-t} & 0\\
+0 & e^{-2t}
+\end{bmatrix} \\
+\vspace{5mm} \hspace{5mm}
+\therefore x(t) = e^{At} x(0)   =    
+\begin{bmatrix}
+e^{-t} & 0\\
+0 & e^{-2t}
+\end{bmatrix}
+\begin{bmatrix}
+1\\
+1
+\end{bmatrix}
+\\
+\vspace{5mm} \hspace{20mm}
+\rightarrow \emph{OPTION (D)}
+%\end{center}
+\end{frame}
+\begin{frame}
+\frametitle{Derivation of state transition matrix}
+\hspace{25mm}
+\rightarrow \dot{x} = Ax \\
+\vspace{5mm} \hspace{25mm}
+Taking Laplacian\\
+\vspace{5mm} \hspace{20mm}
+\rightarrow S.X(s) -x(0) = AX(s)\\
+\vspace{5mm} \hspace{20mm}
+\therefore X(s) = [SI -A]^{-1}x(0)\\
+\vspace{5mm} \hspace{20mm}
+X(t) = $\mathcal{L}$^{-1} [SI -A]^{-1}x(0)\\
+\vspace{5mm} \hspace{20mm}
+\rightarrow Here,  \mathcal{L}^{-1}$[SI -A]^{-1}$  is called the state transition matrix
+
+\end{frame}
+
+\end{document}
+
