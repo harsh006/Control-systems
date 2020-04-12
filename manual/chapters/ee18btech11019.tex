@@ -1,0 +1,115 @@
+\begin{enumerate}[label=\thesubsection.\arabic*.,ref=\thesubsection.\theenumi]
+\numberwithin{equation}{enumi}
+
+\item  Consider the linear system :
+\begin{align}
+    \dot{x} = \myvec{-1 & 0\\0 & -2}x
+\end{align}
+with initial condition:  
+x(0) = \myvec{1\\1}. Find x(t)
+
+
+(A) x(t) =
+\myvec{
+e^{-t} & te^{-2t}\\
+0 & e^{-2t}
+}
+\myvec{
+1\\
+1
+}
+
+\\
+
+(B) x(t) =
+\myvec{
+e^{-t} & 0\\
+0 & e^{2t}
+}
+\myvec{
+1\\
+1
+}
+
+\\
+
+(C) x(t) =
+\myvec{
+e^{-t} & t^{2}e^{-2t}\\
+0 & e^{-2t}
+}
+\myvec{
+1\\
+1
+}
+
+\\
+
+(D) x(t) =
+\myvec{
+e^{-t} & 0\\
+0 & e^{-2t}
+}
+\myvec{
+1\\
+1
+}\\
+\\
+\solution Given expression is the state equation, as it can be written in the following form
+\begin{align}
+    \dot{x} =Ax + BU
+\end{align} \\
+Here, A =  \myvec{-1 & 0\\0 & -2} and U = 0\\
+Solution to this can be given by
+\begin{align}
+    x(t) = \phi(t)x(0)
+\end{align}
+Where $\phi(t)$ is called the state-transition matrix and is given by\\
+\begin{align}
+    \phi(t) = \mathscr{L}^{-1}\myvec{\myvec{sI -A}^{-1}}
+\end{align}\\
+\begin{align}
+    \myvec{sI-A} = \myvec{s+1 & 0\\ 0 & s+2}
+\end{align}\\
+\begin{align}
+    \myvec{sI-A}^{-1} 
+    = \myvec{\frac{1}{s+1} & 0\\
+            0 & \frac{1}{s+2}}
+\end{align}
+\begin{align}
+    \mathscr{L}^{-1}\myvec{\myvec{sI -A}^{-1}} = \myvec{
+e^{-t} & 0\\
+0 & e^{-2t}
+}
+\end{align}
+Given x(0) = \myvec{1 \\ 1}
+\begin{align}
+    \therefore x(t) = \myvec{
+e^{-t} & 0\\
+0 & e^{-2t}
+}
+\myvec{
+1\\
+1
+}\\ 
+\therefore option (D)   
+\end{align}
+\newline
+\newline
+
+\emph{*Derivation for state transition matrix:}
+\begin{align}
+    \dot{x} =Ax
+\end{align} 
+Applying laplace transform, we get
+\begin{align}
+    sX(s) -x(0) = AX(s)\\
+    \myvec{sI - A}X(s) = x(0)\\
+    X(s) = \myvec{sI - A}^{-1}x(0)\\
+\end{align} 
+Taking inverse laplace transform
+\begin{align}
+    x(t) = \mathscr{L}^{-1}\myvec{\myvec{sI -A}^{-1}}x(0)
+\end{align}
+$\to$ Where $\mathscr{L}^{-1}$\myvec{\myvec{sI -A}^{-1}} is called State transition matrix.
+\end{enumerate}
