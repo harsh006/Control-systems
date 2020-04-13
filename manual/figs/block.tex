@@ -1,0 +1,13 @@
+\tikzstyle{int}=[draw, minimum size=2em]
+\tikzstyle{init} = [pin edge={to-,thin,black}]
+
+
+\begin{tikzpicture}[node distance=2.5cm,auto,>=latex']
+    \node [int] (a) {$(sI - A)^{-1}$};
+    \node (b) [left of=a,node distance=2cm, coordinate] {a};
+   
+    \node [coordinate] (end) [right of=a, node distance=2cm]{};
+    \path[->] (b) edge node {$x(0)$} (a);
+    
+    \draw[->] (a) edge node {$X(s)$} (end) ;
+\end{tikzpicture}
