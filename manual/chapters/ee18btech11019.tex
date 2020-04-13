@@ -1,6 +1,40 @@
 \begin{enumerate}[label=\thesubsection.\arabic*.,ref=\thesubsection.\theenumi]
 \numberwithin{equation}{enumi}
 
+\item Consider the circuit given below, here $R_1$= 1K$\Omega$ , $R_2$= 2K$\Omega$ , $C_1$= $C_2$= 1\emph{mF}.Both the capacitors were charged to 1 C. Find Differential equations for $q_1$ and $q_2$.
+
+
+\begin{figure}[!ht]
+    \begin{center}
+		
+		\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11019_fig.tex}}
+	\end{center}
+
+
+\end{figure}
+
+\solution We know that, $i_1$ = -$\dot{q_1}$ , $i_2$ = -$\dot{q_2}$   ('-' as charge is depleting)\\
+Applying \emph{KVL} on 1st branch we get:
+\begin{align}
+    -\dot{q_1}R_1 - \frac{q_1}{c_1} = 0\\
+    \dot{q_1} = -q_1
+\end{align}
+Now, Applying \emph{KVL} 0n 2nd branch we get:
+\begin{align}
+    -\dot{q_2}R_2 - \frac{q_2}{c_2} = 0\\
+    \dot{q_2} = -2q_2
+\end{align}
+
+If I represent this as state space model\\
+Taking $x = \myvec{q_1\\q_2}$\\
+And here $x(0) = \myvec{q_1(0)\\q_2(0)} = \myvec{1\\1}$\\
+$\therefore$ State space model can be represented as \\
+\begin{align}
+    \dot{x} = \myvec{-q_1 \\ -2q_2} = \myvec{-1 & 0\\0 & -2}x
+\end{align}
+\newline
+
+
 \item  Consider the linear system :
 \begin{align}
     \dot{x} = \myvec{-1 & 0\\0 & -2}x
