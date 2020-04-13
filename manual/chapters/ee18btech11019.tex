@@ -145,5 +145,22 @@ Taking inverse laplace transform
 \begin{align}
     x(t) = \mathscr{L}^{-1}\myvec{\myvec{sI -A}^{-1}}x(0)
 \end{align}
-$\to$ Where $\mathscr{L}^{-1}$\myvec{\myvec{sI -A}^{-1}} is called State transition matrix.
+$\to$ Where $\mathscr{L}^{-1}$\myvec{\myvec{sI -A}^{-1}} is called State transition matrix.\\
+\item Draw block diagram for the the above mentioned state model.\\
+\solution Here, clearly Transfer function is given by 
+\begin{align}
+    X(s) = \myvec{sI - A}^{-1}x(0)
+\end{align}
+So, over here open loop gain, $G(s) = \myvec{sI - A}^{-1}$\\
+Input being constant = x(0), and output is X(s)\\
+\newline
+\begin{figure}[!ht]
+    \begin{center}
+		
+		\resizebox{\columnwidth}{!}{\input{./figs/block}}
+	\end{center}
+\caption{Block diagram}
+\label{fig:block}
+\end{figure}
+$\therefore$From the circuit signal flows as current i
 \end{enumerate}
