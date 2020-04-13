@@ -151,16 +151,60 @@ $\to$ Where $\mathscr{L}^{-1}$\myvec{\myvec{sI -A}^{-1}} is called State transit
 \begin{align}
     X(s) = \myvec{sI - A}^{-1}x(0)
 \end{align}
-So, over here open loop gain, $G(s) = \myvec{sI - A}^{-1}$\\
 Input being constant = x(0), and output is X(s)\\
-\newline
+\begin{align}
+    X_1(s) = \frac{1}{s+1}x_1(0)\\
+    X_2(s) = \frac{1}{s+2}x_2(0)
+\end{align}
+Lets consider a closed loop negative unity feed back system, We know its open loop gain
+\begin{align}
+    = \frac{G(s)}{1+G(s)}
+\end{align}
+We can re-write the above to transfer equations as
+\begin{align}
+    X_1(s) = \frac{\frac{1}{s}}{\frac{1}{s}+1}x_1(0)\\
+    X_2(s) = \frac{\frac{1}{s+1}}{\frac{1}{s+1}+1}x_2(0)
+\end{align}
+Below are the block the block diagrams for $X_1$(s) and $X_2$(s)
 \begin{figure}[!ht]
     \begin{center}
 		
-		\resizebox{\columnwidth}{!}{\input{./figs/block}}
+		\resizebox{\columnwidth}{!}{\input{./figs/block1.tex}}
 	\end{center}
-\caption{Block diagram}
-\label{fig:block}
+\caption{block diagram for $X_1$}
+\label{fig:block1}
 \end{figure}
-$\therefore$From the circuit signal flows as current i
+\begin{figure}[!ht]
+    \begin{center}
+		
+		\resizebox{\columnwidth}{!}{\input{./figs/block2.tex}}
+	\end{center}
+\caption{block diagram for $X_2$}
+\label{fig:block2}
+\end{figure}
+\\
+\item Describe how an oscillator works \\
+\solution Oscillators convert a DC input (the supply voltage) into an AC output (the waveform) \\
+\begin{figure}[!ht]
+    \begin{center}
+		
+		\resizebox{\columnwidth}{!}{\input{./figs/osc.tex}}
+	\end{center}
+\caption{block diagram for oscillator}
+\label{fig:block2}
+\end{figure}
+Given Below is basic block diagram\\
+Resonant frequency, is the frequency at which oscillator oscillates, it depends on R/L/C components of the circuit it's been fed back through.\\
+Oscillators work because they overcome the losses of their positive feedback circuit either in the form of a capacitor, inductor or both. In other words, an oscillator is a an amplifier which uses positive feedback that generates an output frequency without the use of an input signal.\\
+Oscillators gain can be given as follows:\\
+From the above circuit we have :\\
+A = Amplifiers gain, B = positive feedback gain, G = total gain of the circuit
+\begin{align}
+    A(V_i_n + BV_o_u_t) =V_o_u_t \\
+    G = \frac{V_o_u_t}{V_i_n} = \frac{A}{1 - AB}
+\end{align}
+We get,\\
+sustained oscillations when $AB = 1$\\
+Exponentially decaying oscillation for $AB<1$ \\
+Exponentially increasing oscillation for $AB >1$ (unstable)\\
 \end{enumerate}
