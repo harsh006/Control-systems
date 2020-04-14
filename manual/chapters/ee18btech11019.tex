@@ -208,6 +208,87 @@ sustained oscillations when $AB = 1$\\
 Exponentially decaying oscillation for $AB<1$ \\
 Exponentially increasing oscillation for $AB >1$ (unstable)\\
 \newline
+\item Hartley oscillator:\\
+The Hartley oscillator is one of the classical LC feedback circuits,i.e feedback is made of LC components.Below here we can see a general form of any LC-type oscillator:
+
+\begin{figure}[!ht]
+    \begin{center}
+		
+		\includegraphics[scale=0.8]{./figs/blc.jpg}
+	\end{center}
+\caption{block diagram for oscillator}
+\label{fig:block2}
+\end{figure}
+
+For any LC oscillator, 
+\begin{align}
+    Z_1 = jX_1\\
+    Z_2 = jX_2\\
+    Z_3 = jX_3\\
+\end{align}
+We know that feedback gain is B, i.e, $\frac{V_0}{V_f} = B$\\
+Applyting voltage divider rule we get
+\begin{align}
+    B = \frac{Z_1}{Z_1 + Z_3}
+\end{align}
+Consider the below circuit
+\begin{figure}[!ht]
+    \begin{center}
+		
+		\includegraphics[scale=0.8]{./figs/lc.jpg}
+	\end{center}
+\caption{block diagram for oscillator}
+\label{fig:block2}
+\end{figure}
+\begin{align}
+    A = \frac{V_o}{V_{in}} = \frac{AZ_L}{R_o + Z_L}\\
+    where\\
+    Z_L = \frac{(Z_2 + Z_3)Z_1}{Z_1+Z_2+Z_3}\\
+\end{align}
+Now,we know that $AB = 1$ for sustained oscillations, putting the the above terms in the equation
+
+    on solving,\\
+\begin{align}    
+    AB = \frac{Z_1Z_2A}{(Z_1+Z_2+Z_3)A+ Z_1(Z_2+Z_3)}\\
+    Z_1 = jX_1,
+    Z_2 = jX_2,
+    Z_3 = jX_3\\
+\end{align}    
+
+    putting that in we get\\
+\begin{align}
+AB = \frac{AX_1X_2}{X_1(X_2+X_3) -jR_o(X_1+X_2+X_3)}
+\end{align}
+For hartley oscillator, 
+\begin{align}
+    Z_1 = j\omega L_1 (inductor)\\
+    Z_2 = j\omega L_2 (inductor)\\
+    Z_3 = \frac{1}{j\omega C} (capacitor)\\
+\end{align}
+Since, AB is real
+\begin{align}
+    X_1+X_2+X_3 = 0\\
+\end{align}
+
+    For, Hartley oscillator, substituting terms in above equation\\
+\begin{align}    
+    \omega L_1 + \omega L_2  = \frac{1}{\omega C}\\
+    \omega = \frac{1}{\sqrt{(L_1+L_2)(C)}}\\
+    f = \frac{1}{2\pi \sqrt{(L_1+L_2)(C)}}
+\end{align}
+\begin{align}
+    B = \frac{Z_1}{Z_1 + Z_3} = \frac{Z_1}{Z_2}\\
+      = \frac{L_1}{L_2}\\
+    A =  \frac{L_2}{L_1} 
+\end{align}
+Given below is circuit for Hartley oscillator built using opamp\\
+\begin{figure}[ht]
+    \begin{center}
+	    \includegraphics[scale=0.7]{./figs/hart.jpg}
+	\end{center}
+\caption{block diagram for oscillator}
+\label{fig:block2}
+\end{figure}
 \item For Hartley oscillator frequency generated can be given as 
 \begin{align}
     f = \frac{1}{2\pi\sqrt{(L_1 + L_2)C}}
