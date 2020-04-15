@@ -11,7 +11,7 @@ Oscillators work because they overcome the losses of their feedback circuit eith
 \begin{figure}[!ht]
     \begin{center}
 		
-		\resizebox{\columnwidth}{!}{\input{osc.tex}} %block diagram
+		\resizebox{\columnwidth}{!}{\input{./figs/osc.tex}} %block diagram
 	\end{center}
 \caption{block diagram for oscillator}
 \label{fig:ee18btech11019_hart_block}
@@ -56,7 +56,7 @@ Total phase gain should be so, as we want our signal to be in phase after every 
 \solution Consider the below circuit
 \begin{figure}[!ht]
     \begin{center}
-		\resizebox{\columnwidth}{!}{\input{lc.tex}}
+		\resizebox{\columnwidth}{!}{\input{./figs/lc.tex}}
 		
 	\end{center}
 \caption{block diagram for oscillator}
@@ -125,17 +125,17 @@ Hartley oscillator built using opamp.\\
 
 \begin{figure}[ht]
     \begin{center}
-	    \resizebox{\columnwidth}{!}{\input{hart.tex}}
+	    \resizebox{\columnwidth}{!}{\input{./figs/hart.tex}}
 	\end{center}
 \caption{Hartley oscillator}
 \label{fig:ee18btech11019_hart}
 \end{figure}
-
-
+\newline
 \item \textbf{Simulation:}\\
 Taking the following values,and applying in \ref{eq:frequency} \\
-\begin{table}[ht]
-\centering
+
+
+
 \begin{tabular}{|c|c|}
 \hline
 Component & Value  \\
@@ -153,7 +153,7 @@ $L_2$         & $1 \mu H$   \\
 C         & 120 pF \\
 \hline
 \end{tabular}
-\end{table}
+
 
 We get f = 103 MHz\\
 Feedback factor for Hartley given by:
