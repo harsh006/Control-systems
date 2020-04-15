@@ -28,7 +28,7 @@ Fig. \label{fig:ee18btech11019_hart_block} shows the block diagram of the an Osc
 \end{align}
 %
 \\
-\solution From \ref{fig:ee18btech11019_hart_block}
+\solution From figure \ref{fig:ee18btech11019_hart_block}
 Oscillators gain can be given as follows:\\
 \begin{align}
     A(V_{in} + BV_{out}) =V_{out}\\
@@ -36,7 +36,7 @@ Oscillators gain can be given as follows:\\
     \frac{V_{out}}{V_{in}} = \frac{A}{1 - AB}
 \end{align}
 %
-resulting in \eqref{eq:ee18btech11019_gain}.
+resulting in \eqref{eq:ee18btech11019_gain}.\\
 
 
 
@@ -53,26 +53,41 @@ Total phase gain should be so, as we want our signal to be in phase after every 
 
 \item Find $A$ and $B$.
 
-\solution Consider the below circuit
+\solution Consider the below circuit fig \ref{fig:ee18btech11019_block2},its basic form of a LC oscillator.\\
+\begin{figure}[!ht]
+    \begin{center}
+		\resizebox{\columnwidth}{!}{\input{./figs/blc.tex}}
+		
+	\end{center}
+\caption{block diagram for oscillator}
+\label{fig:ee18btech11019_block2}
+\end{figure}
+The above figure \ref{fig:ee18btech11019_block2} can also be drawn as fig. \ref{fig:ee18btech11019_block3},when feedback is considered as load :\\
 \begin{figure}[!ht]
     \begin{center}
 		\resizebox{\columnwidth}{!}{\input{./figs/lc.tex}}
 		
 	\end{center}
 \caption{block diagram for oscillator}
-\label{fig:ee18btech11019_block2}
+\label{fig:ee18btech11019_block3}
 \end{figure}
 We know that feedback gain is B, i.e, $\frac{V_0}{V_f} = B$\\
-Applying voltage divider rule we get
+Applying voltage divider rule we get\\
+From figure \ref{fig:ee18btech11019_block2}
 \begin{align}
     B = \frac{Z_1}{Z_1 + Z_3}
 \end{align}
+From fig. \eqref{fig:ee18btech11019_block3}
 \begin{align}
-    A = \frac{V_o}{V_{in}} = \frac{AZ_L}{R_o + Z_L}\\
+    A = \frac{V_o}{V_{in}} = \frac{A_vZ_L}{R_o + Z_L}\\
 \end{align}    
-    where, $Z_L$ is equivalent load across output
+    where,\\
+    $A_v$ is the amplification factor of the opamp\\
+    $v_{in}$ is the internal voltage in amplifier\\
+    $Z_L$ is equivalent load across output
+         
 \begin{align}    
-    Z_L = \frac{(Z_1 + Z_3)Z_2}{Z_1+Z_2+Z_3}\\
+    Z_L = \frac{(Z_1 + Z_3)Z_2}{Z_1+Z_2+Z_3}
 \end{align}
 
 
@@ -82,7 +97,7 @@ Applying voltage divider rule we get
 Now,we know that $AB = 1$ for sustained oscillations, putting the the above terms in the equation\\
 on solving,\\
 \begin{align}    
-    AB = \frac{Z_1Z_2A}{(Z_1+Z_2+Z_3)R_o+ Z_2(Z_1+Z_3)}\\
+    AB = \frac{Z_1Z_2A}{(Z_1+Z_2+Z_3)R_o+ Z_2(Z_1+Z_3)}
 \end{align}    
 \textbf{Hartley oscillator}:\\
 The Hartley oscillator is one of the classical LC feedback circuits,i.e feedback is made of LC components.Below here 
@@ -111,14 +126,18 @@ To satisfy the above equation, equating imaginary term to Zero.
 \end{align}
 \begin{align}
     B = \frac{Z_1}{Z_1 + Z_3} = \frac{Z_1}{Z_2}\\
-      = \frac{L_1}{L_2}\\
+      = \frac{L_1}{L_2}
+    \label{eq:ee18btech11019_B_gain}  
+\end{align}
+\begin{align}
     A =  \frac{L_2}{L_1} 
+\label{eq:ee18btech11019_Amp_gain}
 \end{align}
  
 \item For Hartley oscillator frequency generated can be given as 
 \begin{align}
     f = \frac{1}{2\pi\sqrt{(L_1 + L_2)C}}
-    \label{eq:frequency}
+    \label{eq:ee18btech11019_frequency}
 \end{align}
 Fig. \ref{fig:ee18btech11019_hart} shows a
 Hartley oscillator built using opamp.\\
@@ -130,9 +149,24 @@ Hartley oscillator built using opamp.\\
 \caption{Hartley oscillator}
 \label{fig:ee18btech11019_hart}
 \end{figure}
+We can easily compare between \ref{fig:ee18btech11019_hart_block} and \ref{fig:ee18btech11019_hart}\\
+We know that for an opamp A is given by:
+\begin{align}
+    A = \frac{R_2}{R_1}
+\end{align}
+Here,
+\begin{align}
+    A(S) = \frac{R_2}{R_1} = \frac{L_2}{L_1}
+\end{align}
+referring to \ref{eq:ee18btech11019_Amp_gain}\\
+And,
+\begin{align}
+    B(s) = \frac{V_o}{V_f} = \frac{L_1}{L_2}
+\end{align}
+referring to \ref{eq:ee18btech11019_B_gain}\\
 \newline
 \item \textbf{Simulation:}\\
-Taking the following values,and applying in \ref{eq:frequency} \\
+Taking the following values,and applying in \ref{eq:ee18btech11019_frequency} \\
 
 
 
