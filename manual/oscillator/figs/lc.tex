@@ -1,10 +1,18 @@
+\tikzset{
+ block/.style = {draw, rectangle,
+            minimum height=1cm,
+            minimum width=2cm},
+ifnode/.style={rectangle,dashed,draw=black, top color=white, inner sep=1em,minimum width=4.9cm, minimum height=5cm, text centered, fill=yellow}  ,    
+iffnode/.style={rectangle,dashed,draw=black, top color=white, inner sep=1em,minimum width=3.8cm, minimum height=3cm, text centered, fill=yellow} 
+            }
 \begin{circuitikz} 
-
+\node[ifnode, label=below: Feedback $H(s)$ as load] (ifin) at (2,-2) {};
+\node[iffnode, label= Equivalent for amplifier $G(s)$] (ifin) at (-2.5,-1) {};
 \draw
 (0,0) -- (4,0) node[label = $V_{out}$]
-  to [european resistor = $Z_2$]  (4,-4)   -- (0,-4)node[ground] {} to[european resistor = $Z_1$] (0,-2) 
-  to[european resistor = $Z_3$] (0,0) to[american resistor,label=$R_o$] (-4,0) to[american voltage source ,label= -$A_vV_{in}$](-4,-1) node[ground] {}
+  to [european resistor,label=$Z_2$]  (4,-4)  -- (0,-4)node[ground] {} to[european resistor = $Z_1$] (0,-2) 
+  to[european resistor = $Z_3$] (0,0) to[american resistor,label=$R_o$] (-4,0) to[american voltage source ,invert,label= $A_vV_{in}$](-4,-1) node[ground] {}
   (0,-2)--(-6,-2)--(-6,0) node[label = $V_f$];
   
 
-\end{circuitikz} 
+\end{circuitikz}
