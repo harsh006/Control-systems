@@ -15,7 +15,7 @@ ifnode/.style={rectangle,dashed,draw=black, top color=white, inner sep=1em,minim
 (opamp.-) to[short,*-] ++(0,1) coordinate (leftC)
 to[R=$R_2$] (leftC -| opamp.out)
 to[short,-*] (opamp.out) to [short,-o] (1.5,0) to (1.5,-0.5) {}
-(opamp.+) -- (-3,-0.5) to [R=$R_3$] (-5,-0.5) node[ground] [scale=2] {};
+(opamp.+) -- (-3,-0.5) -- (-5,-0.5) node[ground] [scale=2] {};
 \draw (-2,-0.5) -- (-2,-2);
 \draw (-6,-3) -- (-6.3,-3);
 
