@@ -42,14 +42,37 @@ Below is the block diagram, for the equivalent position control system.\newline
 Clearly from the question its negative feedback system and given sensitivity of system, it basically gets multiplied after error ( e(t) ), thus giving us a block of gain $\frac{1}{\pi}$\newline
 
 \textbf{Calculating plant transfer function G(s)}:\newline\newline
+\begin{table}[!ht]
+\centering
+\input{./tables/ee18btech11019_2.tex}
+\caption{parameters description}
+\label{table:ee18btech110019_2}
+\end{table}
 $V_a(t)$ is the input to the plant and output is $\theta_L$\newline
 We know that,\newline
+The relation between armature voltage and torque $T_m$ \newline
+directly taking result from book control systems engineering by norman-nise, $6^{th}$ edition. Equation no. 2.156 (on page number 82)\newline
 \begin{align}
-    T_m(s)\frac{R_a}{K_t} + K_bS\theta_m(s)  &=  V_a(s)\\
-    (J_mS^2 + f_mS + k)\theta_m(s) - k\theta_L(s)  &=  T_m(s) \\
-   (J_LS^2 + k)\theta_L(s)  &=  k\theta_m(s)
+    T_m(s)\frac{R_a}{K_t} + K_bs\theta_m(s)  &=  V_a(s)
+\end{align}
+Considering free-body diagram of motor we get,\newline 
+$T_m$ is counter balanced by \newline 1) inertial forces(due to $J_m$)\newline 2) viscous frictional force($f_m$) \newline 3) the spring force($k\theta_m$),\newline but also the counter spring force is exerted on motor(in the same direction as $T_m$) due to presence of finite load ($k\theta_L$)\newline
+Below is the equation:\newline
+\begin{align}
+    (J_ms^2 + f_ms + k)\theta_m(s) - k\theta_L(s)  &=  T_m(s) 
+\end{align}
+Now, considering free body diagram on  the load, we get\newline
+$K\theta_m$ is the driving force\newline
+Inertial force($J_l$) and opposing spring force ($K\theta_L$) are the opposing forces.\newline
+Below is the equation:\newline
+\begin{align}
+   (J_Ls^2 + k)\theta_L(s)  &=  k\theta_m(s)
 \end{align}
 Where, \newline
+From the graph given in question:\newline
+V is 50 V\newline
+$T_{stall}$ is torque when $\omega$ =0, i.e. = 100\newline
+$\omega_{no-load}$ is $\omega$ when T is 0, i.e. = 150\newline
 \begin{align}
     \frac{R_a}{K_t} &= \frac{V}{T_{stall}} = \frac{50}{100} = \frac{1}{2}\\
     k_b &= \frac{V}{w_{no-load}} = \frac{50}{150} = \frac{1}{3}
@@ -57,7 +80,7 @@ Where, \newline
 On Solving we get,\newline
 \begin{align}
 G(s) &= \frac{\theta_L(s)}{V_a(s)}\\
-G(s) &= \frac{1}{\frac{5}{6}S^4 + \frac{10}{9}S^3 + 6S^2 + \frac{4}{3}S}
+G(s) &= \frac{1}{\frac{5}{6}s^4 + \frac{10}{9}s^3 + 6S^2 + \frac{4}{3}s}
 \end{align}
 
 
@@ -69,18 +92,18 @@ Now, lets design a controller for the following plant function to get desired ou
 Considering the closed-loop gain of plant function.\newline
 Steady state error is given by,\newline
 \begin{align}
-    &= \frac{G(s)}{1 + G(s)}\\
+    &= \frac{G(s)}{1 + G(s)}
 \end{align}
 We know that, steady state output is given by 
 \begin{align}
-    \lim_{s\to0} SR(s)\myvec{\frac{G(s)}{1 + G(s)}}\\
+    \lim_{s\to0} sR(s)\myvec{\frac{G(s)}{1 + G(s)}}\\
     R(s) = \frac{1}{s}\\
    \text{ steady state output} &= 1
 \end{align}
 Given we have 1\% error,\newline
 Steady state error is given by,\newline
 \begin{align}
-    e_{ss} &= \lim_{s\to0} \myvec{\frac{SR(s)}{1 + G(s)}}
+    e_{ss} &= \lim_{s\to0} \myvec{\frac{sR(s)}{1 + G(s)}}
 \end{align}   
 Here, as we see we get 0 steady state error, therefore to make it finite we cascade a differentiator to the plant function\newline
 Below is the block representation\newline
@@ -91,10 +114,10 @@ Below is the block representation\newline
 \caption{Cascading a differentiator}
 \label{fig:block2}
 \end{figure}\newline
-As, $\frac{1}{\pi}$ is casacde to our plant, so directly multiplying for sake of simplicity.
+As, $\frac{1}{\pi}$ is cascade to our plant, so directly multiplying for sake of simplicity.
 \begin{align}
-    \lim_{s\to0} \myvec{\frac{SR(s)}{1 + G^{'}(s)}} &= 0.01\\
-    \lim_{s\to0} \frac{1}{1 + \frac{1}{\pi}(KS)G(S)} &= 0.01
+    \lim_{s\to0} \myvec{\frac{sR(s)}{1 + G^{'}(s)}} &= 0.01\\
+    \lim_{s\to0} \frac{1}{1 + \frac{1}{\pi}(Ks)G(s)} &= 0.01
 \end{align} 
 Solving, \\
 \begin{align}
@@ -102,7 +125,7 @@ Solving, \\
 \end{align}
 Therefor, the overall system as can be written as,\newline
 \begin{align}
-    G(s) &= \frac{132}{\frac{5}{6}S^3 + \frac{10}{9}S^2 + 6S + \frac{4}{3}}
+    G(s) &= \frac{132}{\frac{5}{6}s^3 + \frac{10}{9}s^2 + 6s + \frac{4}{3}}
 \end{align}
 \textbf{Peak overshoot:}\\
 Lets use a PID-controller for this purpose, 
@@ -120,11 +143,11 @@ General expression for PID-controller given by:
 \begin{align}
      K_{p}\brak{1 + T_{d}s + \frac{1}{T_{i}s}}
 \end{align}
-For it to statisfy our steady state condition, \newline we will take $K_P$ = 1.\newline
+For it to satisfy our steady state condition, \newline we will take $K_P$ = 1.\newline
 And also \textbf{cascading it with a differentiator of gain = $T_i$}, to remove the pole and thus maintaining or steady state value.\newline
 Final transfer function is given by,\newline
 \begin{align}
-    &= \frac{132\brak{S + T_{d}S^2 + \frac{1}{T_{i}}}T_i}{\frac{5}{6}S^3 + \frac{10}{9}S^2 + 6S + \frac{4}{3}}
+    &= \frac{132\brak{S + T_{d}s^2 + \frac{1}{T_{i}}}T_i}{\frac{5}{6}s^3 + \frac{10}{9}s^2 + 6s + \frac{4}{3}}
 \end{align}
 Considering $2^{nd}$ order approximation.\newline
 Relation between \%OS = 15\% and Damping ratio
@@ -165,7 +188,7 @@ Solving one the best fits we get is,\newline
 \end{align}
 \textbf{Final transfer function is given by}:
 \begin{align}
- = \frac{13.2S^2+100S+132}{5/6S^3 + 10/9S^2 + 6S + 4/3}
+ = \frac{13.2s^2+100s+132}{5/6s^3 + 10/9s^2 + 6s + 4/3}
 \end{align}
 \textbf{Below is the figure for the magnitude and phase plot of the function}\newline
 Following's the code:
