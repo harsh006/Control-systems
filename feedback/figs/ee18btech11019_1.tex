@@ -1,5 +1,9 @@
-\begin{circuitikz}
+\tikzset{
+ifnode/.style={rectangle,dashed,draw=black, top color=white, inner sep=1em,minimum width=2cm, minimum height=5cm, text centered, fill=yellow}
+}
 
+\begin{circuitikz}
+    \node[ifnode, label=above:  Feedback $H(s)$] (ifin) at (2.5,-1) {};
 	\draw
 	% Drawing a npn transistor
 	(0,0) node[npn](npn1){} 
