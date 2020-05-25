@@ -4,8 +4,10 @@ ifnode/.style={rectangle,dashed,draw=black, top color=white, inner sep=1em,minim
 
 \begin{circuitikz}
     \node[ifnode, label=above:  Feedback $H(s)$] (ifin) at (2.5,-1) {};
+    
 	\draw
-	% Drawing a npn transistor
+	% Drawing a npn transistor 
+	
 	(0,0) node[npn](npn1){} 
 	% Making connections from transistor using relative coordinates
 	% Labelling the transistor
