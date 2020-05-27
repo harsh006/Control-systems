@@ -12,7 +12,7 @@
     \node [output, right of=controller] (output) {};
     \node [block, below of=controller] (feedback) {$H(s)$};
     
-    \draw [->] (sum) -- node {$V_i$} (controller);
+    \draw [->] (sum) -- node {$V_f$} (controller);
     \draw [->] (controller) -- node [name=y] {$V_o$}(output);
     \draw [->] (y) |- (feedback);
     \draw [->] (feedback) -| node[pos=0.99]{$-$}  node [near end] {$V_f$} (sum);
