@@ -12,7 +12,7 @@ Below is the figure, Fig \ref{fig:ee18btech11019_fig1}
 \label{fig:ee18btech11019_fig1}
 \end{figure}
 \solution We will first draw an equivalent circuit for the above circuit.\newline
-To draw an equivalent block diagram we will draw small signal model for transistor.\ref{fig:ee18btech11019_fig2}
+To draw an equivalent block diagram we will draw small signal model for transistor Fig.\ref{fig:ee18btech11019_fig2}\newline
 \begin{figure}[!ht]
 	\begin{center}
 		\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11019_2.tex}}
@@ -31,18 +31,37 @@ And, its block diagram is as follows: \newline
 \end{figure}
 
 Here G(s) is the amplification gain, and H(s) is the feedback gain.\newline
-and G(s) is given by, $\frac{V_o}{V_f}$
+G(s) small signal circuit is given as follows:\newline
+As, \textbf{$V_f$ = $V_i$}\newline
+\begin{figure}[!ht]
+	\begin{center}
+		\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11019_8.tex}}
+	\end{center}
+\caption{Small signal G(s)}
+\label{fig:ee18btech11019_fig8}
+\end{figure}
+and G(s) is given by, $\frac{V_o}{V_i}$\newline
+Here,\newline
+\begin{align}
+    i_1 &= \frac{V_i}{sL_2}
+\end{align}
 \begin{align}
     V_o &= I(sL_1\parallel R)\\
-    I &= i_1 + g_mV_f\\
-    i_1 &= \frac{V_\pi}{sL_2}\\
+    I &= i_1 + g_mV_i
 \end{align}
 Solving these equations we get,\newline
 \begin{align}
-    \frac{V_o}{V_f} = G(s) = \brak{g_m + \frac{1}{sL_2}}\brak{\frac{RsL_1}{R + sL_1}}
+    \frac{V_o}{V_i} = G(s) = \brak{g_m + \frac{1}{sL_2}}\brak{\frac{RsL_1}{R + sL_1}}
 \end{align}
 Now, solving for H(s)\newline
 From the small signal model feedback, we know that H(s) is output/input, \newline
+\begin{figure}[!ht]
+	\begin{center}
+		\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11019_7.tex}}
+	\end{center}
+\caption{Small signal H(s)}
+\label{fig:ee18btech11019_fig7}
+\end{figure}
 Where,\newline
 Output is $V_f$\newline
 Input is $V_o$ \newline
@@ -71,7 +90,7 @@ Substituting that, we get
 \textbf{Equating Real part to 0}\newline
 \begin{align}
     \omega^2(RC(L_1 +L_2) = R\\
-    \omega = \frac{1}{\sqrt{C(L_1 + L_2}}
+    \omega = \frac{1}{\sqrt{C(L_1 + L_2)}}
 \end{align}
 \textbf{Equating Imaginary part to 0}\newline
 \begin{align}
@@ -134,6 +153,7 @@ Plot:\newline
 Frequency obtained is \textbf{3384 Hz}\newline
 \textbf{Actual expected frequency is:}
 \begin{align}
+    =\frac{\omega}{2\pi}
     = \frac{1}{2\pi \sqrt{C(L_1 +L_2)}}\\
     = 3394 Hz
 \end{align}
