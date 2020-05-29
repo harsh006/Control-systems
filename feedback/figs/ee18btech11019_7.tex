@@ -1,6 +1,6 @@
 \begin{circuitikz}[american,scale =2]
 	
-
+    \node[draw,box] (A) at (0.4,-0.75) {$V_{o}$};
 	% Drawing a npn transistor
 	\draw
 	(-2,0.55)node[left]{Feedback $H(s)$}
@@ -11,7 +11,7 @@
 	(-1,-0.75)node[coordinate](E){}
 	% Making connections from transistor using relative coordinates
 	% Labelling the transistor
-	(A) to (B) to[L=$L_1$,v = $V_o$](0,-2) to node[ground]{}(0,-2)
+	(A) to (B) --(0.25,-0.75)
     (C) to[C=c,i<^=$i_1$](0,0)
     (-4,-2) to[L=$L_2$](-4,-1) --(C)
     (-4,-2) to node[ground]{}(-4,-2)
